@@ -10,7 +10,8 @@
   } = $props();
 
   const countries: ICountry[] = Country.getAllCountries();
-  let states: IState[] = $derived(State.getStatesOfCountry(countryValue));
+  // let states: IState[] = $derived(State.getStatesOfCountry(countryValue));
+  let states: IState[] = $state(State.getStatesOfCountry(countryValue));
 </script>
 
 <tr>
@@ -22,6 +23,9 @@
       options={countries.map(c => ({ value: c.isoCode, label: c.name }))}
       clearable={false}
       bind:value={countryValue}
+      on:change={() => {
+        states = State.getStatesOfCountry(countryValue);
+      }}
     />
   </td>
 </tr>
