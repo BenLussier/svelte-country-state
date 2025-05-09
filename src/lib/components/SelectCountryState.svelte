@@ -2,7 +2,6 @@
   import { type ICountry, type IState, Country, State } from 'country-state-city';
   import { SelectField } from 'svelte-ux';
   let { 
-
     stateLabel = "State",
     countryLabel = "Country",
 
@@ -12,24 +11,6 @@
 
   const countries: ICountry[] = Country.getAllCountries();
   let states: IState[] = $derived(State.getStatesOfCountry(countryValue));
-
-  // let countryDisplay = $state('');
-  // let stateDisplay = $state('');
-
-  // $effect(() => {
-  //   if (countryValue) {
-  //     let country = Country.getCountryByCode(countryValue);
-  //     countryDisplay = country?.name || '';
-  //   }
-  //   if (stateValue) {
-  //     let state = State.getStateByCodeAndCountry(stateValue, countryValue);
-  //     if (state) {
-  //       stateDisplay = state?.name || '';
-  //     } else {
-  //       stateValue = '';
-  //     }
-  //   }
-  // });
 </script>
 
 <tr>
